@@ -6,33 +6,34 @@
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn @click="onChangeTheme">
+        <v-icon>mdi-lightbulb-on</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <HelloWorld />
     </v-content>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import Vue from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
+import vuetify from "./plugins/vuetify";
 
 export default Vue.extend({
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld,
+    HelloWorld
   },
   data: () => ({
     //
   }),
+  methods: {
+    onChangeTheme() {
+      vuetify.framework.theme.dark = !vuetify.framework.theme.dark;
+    }
+  }
 });
 </script>
